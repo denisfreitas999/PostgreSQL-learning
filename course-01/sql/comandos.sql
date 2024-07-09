@@ -29,3 +29,119 @@ CREATE TABLE aluno(
 -- Buscando tabela de alunos
 SELECT * FROM aluno;
 
+--##########################################################
+--######################## Etapa 02 ########################
+--##########################################################
+
+-- Inserindo dados na tabela
+INSERT INTO aluno (
+    nome,
+    cpf,
+    observacao,
+    idade,
+    dinheiro,
+    altura,
+    ativo,
+    data_nascimento,
+    hora_aula,
+    matriculado_em
+) VALUES (
+    'Denisson Freitas',
+    '12345678901',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac dui et nisl vestibulum consequat. Integer vitae magna egestas, finibus libero dapibus, maximus magna. Fusce suscipit mi ut dui vestibulum, non vehicula felis fringilla. Vestibulum eget massa blandit, viverra quam non, convallis libero. Morbi ut nunc ligula. Duis tristique purus augue, nec sodales sem scelerisque dignissim. Sed vel rutrum mi. Nunc accumsan magna quis tempus rhoncus. Duis volutpat nulla a aliquet feugiat. Vestibulum rhoncus mi diam, eu consectetur sapien eleifend in. Donec sed facilisis velit. Duis tempus finibus venenatis. Mauris neque nisl, pulvinar eu volutpat eu, laoreet in massa. Quisque vestibulum eros ac tortor facilisis vulputate. Sed iaculis purus non sem tempus mollis. Curabitur felis lectus, aliquam id nunc ut, congue accumsan tellus.',
+    35,
+    100.50,
+    1.81,
+    TRUE,
+    '1984-08-27',
+    '17:30:00',
+    '2020-02-08 12:32:45'
+);
+
+-- Atualizando dados
+UPDATE aluno 
+	SET 
+		observacao = 'Diminuindo texto da observação.',
+		altura = 1.87,
+		idade = 27,
+		data_nascimento = '1997-01-01'
+	WHERE id = 1;
+
+-- Inserindo mais dados
+
+INSERT INTO aluno (
+    nome,
+    cpf,
+    observacao,
+    idade,
+    dinheiro,
+    altura,
+    ativo,
+    data_nascimento,
+    hora_aula,
+    matriculado_em
+) VALUES 
+(
+    'Mariana Silva',
+    '23456789012',
+    'Estudante dedicada e participativa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec elit non orci consectetur bibendum non a nulla. In ac urna vitae lorem vestibulum egestas.',
+    28,
+    250.75,
+    1.65,
+    TRUE,
+    '1996-04-15',
+    '14:00:00',
+    '2021-09-15 09:45:30'
+),
+(
+    'Carlos Pereira',
+    '34567890123',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis libero nec sapien sodales, sit amet efficitur augue eleifend. Curabitur a erat eu nunc convallis posuere.',
+    42,
+    350.00,
+    1.75,
+    FALSE,
+    '1982-12-05',
+    '10:15:00',
+    '2019-06-20 08:20:10'
+),
+(
+    'Ana Oliveira',
+    '45678901234',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis condimentum euismod urna vel vehicula. Praesent dignissim, arcu ut laoreet vehicula, urna turpis placerat risus, ac volutpat elit justo eget nunc.',
+    22,
+    150.80,
+    1.68,
+    TRUE,
+    '2002-03-22',
+    '13:45:00',
+    '2022-01-10 11:05:15'
+),
+(
+    'Bruno Souza',
+    '56789012345',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Integer a felis at augue elementum tristique. Aenean ut velit vitae lacus commodo aliquam eget at nisi.',
+    30,
+    425.50,
+    1.82,
+    TRUE,
+    '1994-07-18',
+    '16:00:00',
+    '2020-07-25 14:50:55'
+),
+(
+    'Fernanda Costa',
+    '67890123456',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tincidunt metus eget purus fermentum, id dignissim lorem laoreet. Nulla at odio vitae urna fermentum pulvinar.',
+    26,
+    300.20,
+    1.70,
+    FALSE,
+    '1998-11-11',
+    '09:30:00',
+    '2018-03-30 10:25:40'
+);
+
+-- Deletando item da tabela
+DELETE FROM aluno
+	WHERE id = 5;
