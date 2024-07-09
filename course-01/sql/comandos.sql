@@ -145,3 +145,99 @@ INSERT INTO aluno (
 -- Deletando item da tabela
 DELETE FROM aluno
 	WHERE id = 5;
+
+--##########################################################
+--######################## Etapa 03 ########################
+--##########################################################
+
+-- Busca por campos e alias
+SELECT nome, idade, matriculado_em AS "data_matricula"
+	FROM aluno;
+
+-- Busca utilizando o LIKE, % para cadeias de caracteres e _ (underline) para caractere específico
+SELECT *
+	FROM aluno
+	WHERE nome
+	LIKE '%ei%';
+
+SELECT *
+	FROM aluno
+	WHERE nome
+	LIKE '_enisson%';
+
+-- Inserido dado com campo de observação nulo
+INSERT INTO aluno (
+    nome,
+    cpf,
+    idade,
+    dinheiro,
+    altura,
+    ativo,
+    data_nascimento,
+    hora_aula,
+    matriculado_em
+) VALUES 
+(
+    'Diego Silva',
+    '23456789059',
+    25,
+    200.5,
+    1.60,
+    TRUE,
+    '1996-04-20',
+    '15:00:00',
+    '2021-09-20 09:45:30'
+);
+
+-- Traz campos não nulos
+SELECT *
+	FROM aluno
+	WHERE observacao IS NOT NULL;
+
+-- Traz campos nulos
+SELECT *
+	FROM aluno
+	WHERE observacao IS NULL;
+
+-- Operadores >, <, =, >=, <=, <>, !=
+SELECT nome, idade
+	FROM aluno
+	WHERE idade > 25;
+
+SELECT nome, idade
+	FROM aluno
+	WHERE idade < 25;
+
+SELECT nome, idade
+	FROM aluno
+	WHERE idade = 25;
+
+SELECT nome, idade
+	FROM aluno
+	WHERE idade >= 25;
+
+SELECT nome, idade
+	FROM aluno
+	WHERE idade <= 25;
+
+SELECT nome, idade
+	FROM aluno
+	WHERE idade <> 25;
+
+SELECT nome, idade
+	FROM aluno
+	WHERE idade != 25;
+
+-- Operadores AND, OR, BETWEEN
+
+SELECT nome, idade
+	FROM aluno
+	WHERE idade > 20 AND idade < 30;
+
+SELECT nome, idade
+	FROM aluno
+	WHERE idade BETWEEN 20 AND 30;
+
+SELECT nome, idade
+	FROM aluno
+	WHERE idade = 25 OR idade = 27;
