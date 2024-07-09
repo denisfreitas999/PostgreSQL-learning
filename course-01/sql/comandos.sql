@@ -241,3 +241,67 @@ SELECT nome, idade
 SELECT nome, idade
 	FROM aluno
 	WHERE idade = 25 OR idade = 27;
+
+--##########################################################
+--######################## Etapa 04 ########################
+--##########################################################
+
+DROP TABLE aluno;
+SELECT * FROM aluno;
+
+-- Criando Tabela de alunos com chave primária e inserindo dados
+CREATE TABLE alunos (
+	id SERIAL PRIMARY KEY,
+	nome VARCHAR (255) NOT NULL,
+	idade INTEGER NOT NULL,
+	status Boolean NOT NULL
+);
+
+SELECT * FROM alunos;
+
+INSERT INTO alunos (nome, idade, status)
+	VALUES 
+		('Denisson Freitas', 27, true),
+		('Benjamin Santos', 20, true);
+
+-- Criando Tabela de curso com chave primária e inserindo dados
+CREATE TABLE cursos (
+	id SERIAL PRIMARY KEY,
+	nome VARCHAR (255) NOT NULL
+);
+
+SELECT * FROM cursos;
+
+INSERT INTO cursos (nome)
+	VALUES
+		('HTML'),
+		('Javascript');
+
+-- Criando Tabela de relacionamento entre cursos e alunos
+CREATE TABLE aluno_cursos (
+	id_aluno INTEGER NOT NULL,
+	id_curso INTEGER NOT NULL,
+	PRIMARY KEY (id_aluno, id_curso),
+	FOREIGN KEY (id_aluno) REFERENCES alunos (id),
+	FOREIGN KEY (id_curso) REFERENCES cursos (id)
+);
+
+-- Inserção de dados + teste de inserção inválida
+INSERT INTO aluno_cursos (id_aluno, id_curso) VALUES (1,1);
+INSERT INTO aluno_cursos (id_aluno, id_curso) VALUES (2,1);
+INSERT INTO aluno_cursos (id_aluno, id_curso) VALUES (3,1);
+INSERT INTO aluno_cursos (id_aluno, id_curso) VALUES (1,3);
+
+-- Preparando dados para execução do JOIN
+SELECT * FROM cursos;
+SELECT * FROM alunos;
+SELECT * FROM aluno_cursos;
+INSERT INTO aluno_cursos (id_aluno, id_curso) VALUES (2,2);
+
+-- Usando o JOIN
+SELECT a.nome AS "Nome do Aluno", c.nome AS "Nome do Curso"
+	FROM alunos a
+	JOIN aluno_cursos ac ON (a.id = ac.id_aluno)
+	JOIN cursos c ON (ac.id_curso = c.id);
+
+    
