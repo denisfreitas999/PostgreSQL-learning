@@ -83,3 +83,47 @@ INSERT INTO aluno_curso (aluno_id, curso_id) VALUES
 (9, 9),
 (10, 5),
 (10, 10);
+
+--##########################################################
+--######################## Etapa 02 ########################
+--##########################################################
+
+-- Adicionando novos dados
+INSERT INTO aluno_curso (aluno_id, curso_id) VALUES
+(1, 2),
+(1, 3),
+(1, 4),
+(2, 1),
+(2, 4),
+(3, 5),
+(3, 6),
+(4, 1),
+(4, 2),
+(5, 1),
+(6, 3),
+(7, 4),
+(8, 4),
+(9, 1),
+(9, 2),
+(10, 3),
+(10, 4),
+(10, 7);
+
+-- Relatório: Exibir em lista decrescente os cursos e quantidade de alunos matriculados
+SELECT * FROM aluno;
+SELECT * FROM curso;
+SELECT * FROM aluno_curso;
+
+SELECT c.nome as "Nome do Curso", COUNT(ac.aluno_id) AS "Quantidade Alunos"
+	FROM aluno a
+	JOIN aluno_curso ac ON (a.id = ac.aluno_id)
+	JOIN curso c ON (ac.curso_id = c.id)
+	GROUP BY c.nome
+	ORDER BY "Quantidade Alunos" DESC;
+
+-- Exibir nome do aluno e quantidade de cursos que ele faz
+SELECT a.primeiro_nome AS "Nome", a.ultimo_nome AS "Sobrenome", COUNT(ac.curso_id) "Quantidade de Cursos"
+	FROM aluno a
+	JOIN aluno_curso ac ON (a.id = ac.aluno_id)
+	GROUP BY  1, 2 
+	ORDER BY COUNT(ac.curso_id) DESC;
