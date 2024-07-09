@@ -304,4 +304,89 @@ SELECT a.nome AS "Nome do Aluno", c.nome AS "Nome do Curso"
 	JOIN aluno_cursos ac ON (a.id = ac.id_aluno)
 	JOIN cursos c ON (ac.id_curso = c.id);
 
-    
+-- Usando o LEFT JOIN
+SELECT a.nome AS "Nome do Aluno", c.nome AS "Nome do Curso"
+	FROM alunos a
+	LEFT JOIN aluno_cursos ac ON (a.id = ac.id_aluno)
+	LEFT JOIN cursos c ON (ac.id_curso = c.id);
+
+-- Usando o RIGHT JOIN
+SELECT a.nome AS "Nome do Aluno", c.nome AS "Nome do Curso"
+	FROM alunos a
+	RIGHT JOIN aluno_cursos ac ON (a.id = ac.id_aluno)
+	RIGHT JOIN cursos c ON (ac.id_curso = c.id);
+
+-- Usando o FULL JOIN
+    SELECT a.nome AS "Nome do Aluno", c.nome AS "Nome do Curso"
+        FROM alunos a
+        FULL JOIN aluno_cursos ac ON (a.id = ac.id_aluno)
+        FULL JOIN cursos c ON (ac.id_curso = c.id);
+
+-- Usando o CROSS JOIN
+SELECT a.nome AS "Nome do Aluno", c.nome AS "Nome do Curso"
+	FROM alunos a
+	CROSS JOIN cursos c;
+
+--##########################################################
+--######################## Etapa 05 ########################
+--##########################################################
+
+-- Recriando a tabela alunos cursos trocando o RESTRICT para CASCADE
+SELECT * FROM alunos;
+SELECT * FROM cursos;
+SELECT * FROM aluno_cursos;
+
+DROP TABLE aluno_cursos;
+
+-- UTILIZANDO O ON DELETE CASCADE 
+CREATE TABLE aluno_cursos (
+	id_aluno INTEGER NOT NULL,
+	id_curso INTEGER NOT NULL,
+	PRIMARY KEY (id_aluno, id_curso),
+	FOREIGN KEY (id_aluno) REFERENCES alunos (id)
+		ON DELETE CASCADE,
+	FOREIGN KEY (id_curso) REFERENCES cursos (id)
+		ON DELETE CASCADE
+);
+
+INSERT INTO aluno_cursos (id_aluno, id_curso) VALUES (1,1);
+INSERT INTO aluno_cursos (id_aluno, id_curso) VALUES (2,1);
+INSERT INTO aluno_cursos (id_aluno, id_curso) VALUES (2,2);
+
+DELETE FROM alunos WHERE id = 2;
+
+
+-- Recriando a tabela aluno_cursos trocando o UPDATE RESTRICT para UPDATE CASCADE
+SELECT * FROM alunos;
+SELECT * FROM cursos;
+SELECT * FROM aluno_cursos;
+
+DROP TABLE aluno_cursos;
+
+-- UTILIZANDO O ON UPDATE CASCADE 
+CREATE TABLE aluno_cursos (
+	id_aluno INTEGER NOT NULL,
+	id_curso INTEGER NOT NULL,
+	PRIMARY KEY (id_aluno, id_curso),
+	FOREIGN KEY (id_aluno) REFERENCES alunos (id)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE,
+	FOREIGN KEY (id_curso) REFERENCES cursos (id)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE
+);
+
+INSERT INTO alunos (nome, idade, status)
+	VALUES ('Benjamin Santos', 20, true);
+
+INSERT INTO aluno_cursos (id_aluno, id_curso) VALUES (1,1);
+INSERT INTO aluno_cursos (id_aluno, id_curso) VALUES (5,1);
+INSERT INTO aluno_cursos (id_aluno, id_curso) VALUES (5,2);
+
+SELECT a.id AS "Id Aluno", a.nome AS "Nome do Aluno", c.nome AS "Nome do Curso"
+	FROM alunos a
+	FULL JOIN aluno_cursos ac ON (a.id = ac.id_aluno)
+	FULL JOIN cursos c ON (ac.id_curso = c.id);
+
+UPDATE alunos SET id = 3 WHERE id = 5;
+
