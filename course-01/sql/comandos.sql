@@ -390,3 +390,64 @@ SELECT a.id AS "Id Aluno", a.nome AS "Nome do Aluno", c.nome AS "Nome do Curso"
 
 UPDATE alunos SET id = 3 WHERE id = 5;
 
+--##########################################################
+--######################## Etapa 06 ########################
+--##########################################################
+
+-- Ordenação ORDER BY / ASC / DESC
+SELECT a.id AS "Id Aluno", a.nome AS "Nome do Aluno", c.nome AS "Nome do Curso"
+	FROM alunos a
+	JOIN aluno_cursos ac ON (a.id = ac.id_aluno)
+	JOIN cursos c ON (ac.id_curso = c.id)
+ 	ORDER BY "Nome do Aluno" ASC;
+
+SELECT a.id AS "Id Aluno", a.nome AS "Nome do Aluno", c.nome AS "Nome do Curso"
+	FROM alunos a
+	JOIN aluno_cursos ac ON (a.id = ac.id_aluno)
+	JOIN cursos c ON (ac.id_curso = c.id)
+ 	ORDER BY 2 ASC;
+
+-- Limitando consultas LIMIT
+SELECT a.id AS "Id Aluno", a.nome AS "Nome do Aluno", c.nome AS "Nome do Curso"
+	FROM alunos a
+	JOIN aluno_cursos ac ON (a.id = ac.id_aluno)
+	JOIN cursos c ON (ac.id_curso = c.id)
+	LIMIT 1;
+
+-- Usando OFFSET para pular linha
+SELECT a.id AS "Id Aluno", a.nome AS "Nome do Aluno", c.nome AS "Nome do Curso"
+	FROM alunos a
+	JOIN aluno_cursos ac ON (a.id = ac.id_aluno)
+	JOIN cursos c ON (ac.id_curso = c.id)
+	LIMIT 1
+	OFFSET 2;
+
+-- Funções de Agregação: COUNT, SUM, MAX, MIN, AVG, ROUND
+
+SELECT COUNT(*) as "QTD Alunos" from alunos;
+
+SELECT SUM(alunos.idade) as "Soma das idades" from alunos;
+
+SELECT MAX(alunos.idade) as "Maior idade" from alunos;
+
+SELECT MIN(alunos.idade) as "Menor idade" from alunos;
+
+SELECT ROUND(AVG(alunos.idade), 2) as "Média idades" from alunos;
+
+-- Agrupamentos de consultas GROUP BY
+SELECT a.id AS "Id Aluno", a.nome AS "Nome do Aluno", COUNT(c.id) AS "Quantidade de Cursos"
+	FROM alunos a
+	JOIN aluno_cursos ac ON a.id = ac.id_aluno
+	JOIN cursos c ON ac.id_curso = c.id
+	GROUP BY a.id, a.nome
+	ORDER BY a.nome;
+
+-- Agrupamentos de consultas GROUP BY afunilando com o Having
+SELECT a.id AS "Id Aluno", a.nome AS "Nome do Aluno", COUNT(c.id) AS "Quantidade de Cursos"
+	FROM alunos a
+	JOIN aluno_cursos ac ON a.id = ac.id_aluno
+	JOIN cursos c ON ac.id_curso = c.id
+	GROUP BY a.id, a.nome
+	HAVING COUNT(c.id) > 1
+	ORDER BY a.nome;
+
