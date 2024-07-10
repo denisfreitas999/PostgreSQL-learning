@@ -165,3 +165,15 @@ SELECT CONCAT(primeiro_nome, ' ', ultimo_nome) AS nome_completo,
 	EXTRACT(YEAR FROM AGE(data_nascimento)) AS idade
 	FROM aluno;
 
+--##########################################################
+--######################## Etapa 05 ########################
+--##########################################################
+
+-- Trabalhando com View
+CREATE VIEW vw_cursos_por_categoria AS 
+	SELECT ca.nome AS Categoria, COUNT (cu.id) AS "Quantidade de Cursos"
+	FROM categoria ca
+	JOIN curso cu ON (ca.id = cu.categoria_id)
+	GROUP BY categoria;
+	  
+SELECT * FROM vw_cursos_por_categoria;
