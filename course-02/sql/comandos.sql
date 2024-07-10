@@ -146,3 +146,22 @@ SELECT id FROM categoria WHERE nome NOT LIKE '% %';
 SELECT * FROM curso WHERE categoria_id IN (
 	SELECT id FROM categoria WHERE nome NOT LIKE '% %'
 );
+
+--##########################################################
+--######################## Etapa 04 ########################
+--##########################################################
+
+SELECT * FROM aluno;
+
+-- Concatenando textos
+SELECT (primeiro_nome || ' ' || ultimo_nome) AS nome_completo FROM  aluno;
+SELECT CONCAT(primeiro_nome, ' ', ultimo_nome) AS nome_completo FROM aluno;
+
+-- Operando datas
+SELECT CONCAT(primeiro_nome, ' ', ultimo_nome) AS nome_completo, (NOW()::DATE - data_nascimento)/365 AS idade
+	FROM aluno;
+
+SELECT CONCAT(primeiro_nome, ' ', ultimo_nome) AS nome_completo, 
+	EXTRACT(YEAR FROM AGE(data_nascimento)) AS idade
+	FROM aluno;
+
