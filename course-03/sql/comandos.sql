@@ -33,4 +33,21 @@ CREATE TABLE academico.aluno_curso (
 	PRIMARY KEY (aluno_id, curso_id)
 );
 
+--##########################################################
+--######################## Etapa 02 ########################
+--##########################################################
 
+-- Criando tabela temporaria e utilizando o CHECK para validar campos
+CREATE TEMPORARY TABLE temporaria (
+        coluna VARCHAR(255) NOT NULL CHECK (coluna <> '')
+);
+
+INSERT INTO temporaria VALUES ('');
+INSERT INTO temporaria VALUES ('Denisson');
+SELECT * FROM temporaria;
+
+
+-- Alterando informações da tabela com o ALTER
+ALTER TABLE temporaria RENAME TO tabela_temporaria;
+SELECT * FROM tabela_temporaria;
+ALTER TABLE tabela_temporaria RENAME COLUMN coluna TO primeiro_nome;
