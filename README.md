@@ -1,6 +1,7 @@
 # Projeto: Formação PostgreSQL - Alura Courses Overview
 
 #### Course 01 - Curso Introdutório PostgreSQL (01 - 05)
+#### Course 02 - PostgreSQL: Views, Sub-Consultas e Funções (06 - 10) 
 
 ## Tecnologias Envolvidas
 <div style="display: inline_block">
@@ -14,6 +15,11 @@
 3. [Consultas e Filtros](#3-consultas-e-filtros)
 4. [Chaves e Relacionamentos](#4-chaves-e-relacionamentos)
 5. [Ordenação, Limitação e Funções de Agregação](#5-ordenação-limitação-e-funções-de-agregação)
+6. [Conceitos de Chaves e Relacionamentos](#6-conceitos-de-chaves-e-relacionamentos)
+7. [Revisão e Prática de Comandos de Manipulação de Dados](#7-revisão-e-prática-de-comandos-de-manipulação-de-dados)
+8. [Sub-Consultas e Operador IN](#8-sub-consultas-e-operador-in)
+9. [Manipulação de Tipos de Dados](#9-manipulação-de-tipos-de-dados)
+10. [Criação e Manipulação de Views](#10-criação-e-manipulação-de-views)
 
 ## 1. Instalação e Configuração Inicial
 
@@ -84,3 +90,38 @@ Nesta etapa, foco na ordenação, limitação de resultados e uso de funções d
 - **Como funcionam os filtros por funções de agrupamento, utilizando HAVING**: Filtragem de resultados agrupados com HAVING.
 - **A diferença entre WHERE e HAVING**: Entendendo a aplicação de WHERE e HAVING.
 - **Como utilizar o HAVING**: Aplicação de filtros após a agregação de dados.
+
+## 6. Conceitos de Chaves e Relacionamentos
+
+Nesta etapa, foco nos conceitos fundamentais de chaves e relacionamentos:
+
+- **Conceitos de chaves primárias e chaves estrangeiras**: Definição e importância das chaves primárias e estrangeiras.
+- **Tipos de relacionamentos**: Exploração dos tipos de relacionamentos em bancos de dados (um-para-um, um-para-muitos, muitos-para-muitos).
+- **Como implementar os relacionamentos um-para-um, um-para-muitos e muitos-para-muitos**: Implementação prática de diferentes tipos de relacionamentos.
+
+## 7. Revisão e Prática de Comandos de Manipulação de Dados
+
+Nesta etapa, revisão e prática dos comandos básicos de manipulação de dados:
+
+- **Revisão dos comandos de manipulação de dados (INSERT, UPDATE e DELETE)**: Revisão detalhada dos comandos básicos de manipulação.
+- **Praticando relatórios**: Criação e prática de relatórios usando SQL.
+- **Exercitando os conceitos de SELECTs, JOINs, etc.**: Prática intensiva de consultas SELECT e uso de JOINs.
+
+## 8. Sub-Consultas e Operador IN
+
+Nesta etapa, foco nas sub-consultas e no operador IN:
+
+- **Utilizando o operador IN**: Uso do operador IN para filtros complexos.
+- **Criando sub-consultas**: Criação e utilização de sub-consultas dentro de consultas principais.
+
+## 9. Manipulação de Tipos de Dados
+
+Nesta etapa, foco na manipulação de diferentes tipos de dados:
+
+- **Manipulando diferentes tipos de dados: Datas, Números e Strings**: Técnicas para manipulação de dados de diferentes tipos (datas, números e strings).
+
+## 10. Criação e Manipulação de Views
+
+Nesta etapa, foco na criação e manipulação de Views:
+
+- **Criando e manipulando um View**: Criação e utilização de Views para simplificar e organizar consultas complexas.
