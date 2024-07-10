@@ -127,3 +127,22 @@ SELECT a.primeiro_nome AS "Nome", a.ultimo_nome AS "Sobrenome", COUNT(ac.curso_i
 	JOIN aluno_curso ac ON (a.id = ac.aluno_id)
 	GROUP BY  1, 2 
 	ORDER BY COUNT(ac.curso_id) DESC;
+
+--##########################################################
+--######################## Etapa 03 ########################
+--##########################################################
+
+-- Usando o IN para checar itens da lista passada
+SELECT * FROM curso;
+SELECT * FROM categoria;
+
+SELECT * FROM curso WHERE categoria_id IN (1, 2);
+
+-- Queries aninhadas (SUBQUERY)
+SELECT * FROM categoria;
+
+SELECT id FROM categoria WHERE nome NOT LIKE '% %';
+
+SELECT * FROM curso WHERE categoria_id IN (
+	SELECT id FROM categoria WHERE nome NOT LIKE '% %'
+);
