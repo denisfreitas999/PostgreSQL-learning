@@ -199,6 +199,10 @@ UPDATE teste.cursos_tecnologia SET nome_curso = nome
 	FROM academico.curso
 	WHERE teste.cursos_tecnologia.id_curso = academico.curso.id;
 
+--##########################################################
+--######################## Etapa 04 ########################
+--##########################################################
+
 -- Transações / BEGIN, ROLLBAK e COMMIT
 SELECT * FROM teste.cursos_tecnologia;
 
@@ -211,3 +215,52 @@ ROLLBACK;
 BEGIN;
 DELETE FROM teste.cursos_tecnologia WHERE id_curso = 11;
 COMMIT;
+
+--##########################################################
+--######################## Etapa 05 ########################
+--##########################################################
+
+-- Verificando o funcionamento das SEQUENCES
+CREATE TEMPORARY TABLE auto (
+        id SERIAL PRIMARY KEY,
+        nome VARCHAR(30) NOT NULL
+);
+
+INSERT INTO auto (nome) VALUES ("Denisson Freitas");
+
+SELECT * FROM auto;
+
+INSERT INTO auto (id, nome) VALUES (2, "Denisson Freitas");
+
+INSERT INTO auto (nome) VALUES ("Outro nome");
+
+CREATE SEQUENCE teste_sequence;
+
+CREATE TEMPORARY TABLE auto (
+        id INTEGER PRIMARY KEY DEFAULT teste_sequence,
+        nome VARCHAR(30) NOT NULL
+);
+
+SELECT CURRVAL ('teste_sequence');
+SELECT NEXTVAL ('teste_sequence');
+
+-- Enumeração e Tipagem
+
+CREATE TEMPORARY TABLE filme(
+        id SERIAL PRIMARY KEY,
+        nome VARCHAR (255) NOT NULL,
+        classificacao VARCHAR(255) CHECK (classificacao IN ('LIVRE', '12_ANOS', '14_ANOS', '16_ANOS', '18_ANOS'))
+);
+
+CREATE TYPE CLASSIFICACAO AS ENUM ('LIVRE', '12_ANOS','14_ANOS', '16_ANOS', '18_ANOS');
+
+CREATE TEMPORARY TABLE filme (
+        id SERIAL PRIMARY KEY,
+        nome VARCHAR (255) NOT NULL,
+        classificacao CLASSIFICACAO
+);
+
+INSERT INTO filme (nome, classificacao) VALUES ('Game of Thrones', '21321');
+
+SELECT * FROM filme;
+
