@@ -2,6 +2,7 @@
 
 #### Course 01 - Curso Introdutório PostgreSQL (01 - 05)
 #### Course 02 - PostgreSQL: Views, Sub-Consultas e Funções (06 - 10) 
+#### Course 03 - PostgreSQL: Comandos DML e DDL  (11 - 15) 
 
 ## Tecnologias Envolvidas
 <div style="display: inline_block">
@@ -20,6 +21,11 @@
 8. [Sub-Consultas e Operador IN](#8-sub-consultas-e-operador-in)
 9. [Manipulação de Tipos de Dados](#9-manipulação-de-tipos-de-dados)
 10. [Criação e Manipulação de Views](#10-criação-e-manipulação-de-views)
+11. [Modelagem de Dados e Schemas](#11-modelagem-de-dados-e-schemas)
+12. [Criação e Alteração de Tabelas](#12-criação-e-alteração-de-tabelas)
+13. [Inserção e Manipulação de Dados](#13-inserção-e-manipulação-de-dados)
+14. [Atualizações e Transações](#14-atualizações-e-transações)
+15. [SEQUENCEs e Tipos Personalizados](#15-sequences-e-tipos-personalizados)
 
 ## 1. Instalação e Configuração Inicial
 
@@ -125,3 +131,46 @@ Nesta etapa, foco na manipulação de diferentes tipos de dados:
 Nesta etapa, foco na criação e manipulação de Views:
 
 - **Criando e manipulando um View**: Criação e utilização de Views para simplificar e organizar consultas complexas.
+
+## 11. Modelagem de Dados e Schemas
+
+Nesta etapa, foco no conceito de modelagem de dados e organização de tabelas:
+
+- **Conhecendo o conceito de modelagem de dados**: Definição e importância da modelagem de dados no PostgreSQL.
+- **Conhecendo sobre schemas no PostgreSQL que nos ajudam a organizar nossas tabelas**: Utilização de schemas para organização eficiente das tabelas.
+- **Conversando sobre análise de requisitos e sobre modelos utilizados neste processo**: Discussão sobre a análise de requisitos e os modelos aplicáveis na modelagem de dados.
+
+## 12. Criação e Alteração de Tabelas
+
+Nesta etapa, aprofundamento na criação e modificação de tabelas:
+
+- **Desmembrando a criação de um banco de dados e aprofundando esse conhecimento**: Processo detalhado para criação de um banco de dados.
+- **Falando sobre os detalhes ao criar uma tabela**: Considerações importantes na criação de tabelas.
+- **Conhecendo o ALTER TABLE para alterar a estrutura de uma tabela**: Utilização do comando ALTER TABLE para modificar tabelas existentes.
+- **Vendo a diferença entre comandos DDL e DML**: Diferenças e aplicações dos comandos Data Definition Language (DDL) e Data Manipulation Language (DML).
+
+## 13. Inserção e Manipulação de Dados
+
+Nesta etapa, foco na inserção e manipulação de dados:
+
+- **Entendendo as particularidades da representação de tipos e uso de aspas em SQL**: Regras para representação de tipos de dados e uso de aspas.
+- **Conhecendo o comando INSERT SELECT que realiza inserções a partir de uma consulta**: Utilização do comando INSERT SELECT para inserir dados baseando-se em resultados de consultas.
+- **Falando sobre importação e exportação de dados em arquivos CSV**: Técnicas para importação e exportação de dados usando arquivos CSV.
+
+## 14. Atualizações e Transações
+
+Nesta etapa, foco nas atualizações de dados e no uso de transações:
+
+- **Conhecendo a sintaxe do UPDATE FROM, que atualiza uma tabela baseando-se em dados de uma consulta**: Atualização de tabelas utilizando dados de outras consultas.
+- **Vendo os perigos de uma alteração ou remoção incorreta (sem WHERE, por exemplo)**: Precauções ao realizar alterações ou remoções de dados.
+- **Aprendendo a trabalhar com transações**: Conceitos e práticas para trabalhar com transações no PostgreSQL.
+- **Vendo como confirmar ou cancelar uma transação**: Comandos para confirmar (COMMIT) ou cancelar (ROLLBACK) uma transação.
+
+## 15. SEQUENCEs e Tipos Personalizados
+
+Nesta etapa, foco em SEQUENCEs e tipos personalizados:
+
+- **Conhecendo as SEQUENCEs do PostgreSQL**: Utilização de SEQUENCEs para gerar valores únicos automaticamente.
+- **Aprendendo o que é uma ENUM**: Definição e uso de tipos ENUM no PostgreSQL.
+- **Aprendendo a criar um tipo personalizado no banco de dados**: Criação de tipos personalizados para atender necessidades específicas.
+- **Conversando sobre como bancos de dados são utilizados na vida real**: Aplicações práticas de bancos de dados no cotidiano.
