@@ -168,3 +168,51 @@ SELECT * FROM instrutores_bem_pagos3(300);
 --##########################################################
 --######################## Etapa 03 ########################
 --##########################################################
+
+-- Conhecendo a estrutura básica de uma plpgsql
+CREATE OR REPLACE FUNCTION primeira_pl() RETURNS INTEGER AS $$ 
+	-- Conjunto de blocos de código. Deve haver pelo menos 1.
+	BEGIN
+		-- Comandos SQL
+		-- retorno
+		RETURN 1;
+	END
+$$ LANGUAGE plpgsql;
+
+SELECT * FROM  primeira_pl();
+
+-- Declarações de variáveis
+CREATE OR REPLACE FUNCTION segunda_pl() RETURNS INTEGER AS $$ 
+	DECLARE primeira_variavel INTEGER DEFAULT 3;
+	DECLARE segunda_variavel INTEGER := 2;
+	BEGIN
+		primeira_variavel := primeira_variavel + segunda_variavel;
+		RETURN primeira_variavel;
+	END
+$$ LANGUAGE plpgsql;
+
+SELECT * FROM segunda_pl();
+
+--  Blocos
+
+CREATE OR REPLACE FUNCTION segunda_pl() RETURNS INTEGER AS $$ 
+	DECLARE primeira_variavel INTEGER DEFAULT 3;
+	DECLARE segunda_variavel INTEGER := 2;
+	BEGIN
+		primeira_variavel := primeira_variavel + segunda_variavel;
+		BEGIN
+			primeira_variavel := primeira_variavel + 5;
+		END;
+		RETURN primeira_variavel;
+	END
+$$ LANGUAGE plpgsql;
+	
+SELECT * FROM segunda_pl();
+
+
+
+
+
+
+
+
