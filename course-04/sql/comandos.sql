@@ -209,10 +209,132 @@ $$ LANGUAGE plpgsql;
 	
 SELECT * FROM segunda_pl();
 
+--##########################################################
+--######################## Etapa 04 ########################
+--##########################################################
+
+-- $$$$$$$$$$$$ Praticando PLpgSQL $$$$$$$$$$$$$$$
+-- 1ª FORMA
+CREATE OR REPLACE FUNCTION cria_instrutor_falso() RETURNS instrutor AS $$
+	BEGIN
+		RETURN ROW(22, 'Nome Falso', 200::DECIMAL)::instrutor;
+	END
+$$ LANGUAGE plpgsql;
+
+SELECT * FROM cria_instrutor_falso();
+
+-- 2ª FORMA
+CREATE OR REPLACE FUNCTION cria_instrutor_falso() RETURNS instrutor AS $$
+	DECLARE retorno instrutor;
+	BEGIN
+		SELECT 22, 'Nome Falso', 200::DECIMAL INTO retorno;
+		RETURN retorno;
+	END
+$$ LANGUAGE plpgsql;
+
+SELECT * FROM cria_instrutor_falso();
+
+-- Outro exemplo
+DROP FUNCTION instrutores_bem_pagos;
+
+CREATE OR REPLACE FUNCTION instrutores_bem_pagos(valor_salarial DECIMAL) RETURNS SETOF instrutor AS $$
+	BEGIN
+		RETURN QUERY SELECT * FROM instrutor WHERE salario > valor_salarial;
+	END;
+$$ LANGUAGE plpgsql;
+
+SELECT * FROM instrutores_bem_pagos(400);
+
+-- If - Else
+CREATE FUNCTION salario_ok(instrutor instrutor) RETURNS VARCHAR AS $$
+	BEGIN
+		-- Se o salário do instrutor > 300, está ok! Senão, aumente.
+		IF instrutor.salario > 300 THEN
+			RETURN 'Salário ok!';
+		ELSE
+			RETURN 'Salário pode aumentar.';
+		END IF;
+	END;
+$$ LANGUAGE plpgsql;
+
+SELECT nome, salario_ok(instrutor) FROM instrutor;
+
+-- Resolvendo de outra forma:
+DROP FUNCTION salario_ok;
+CREATE FUNCTION salario_ok(id_instrutor INTEGER) RETURNS VARCHAR AS $$
+	DECLARE instrutor instrutor;
+	BEGIN
+		-- Buscando instrutor pelo id
+		SELECT * FROM instrutor WHERE id = id_instrutor INTO instrutor;
+		
+		-- Se o salário do instrutor > 300, está ok! Senão, aumente.
+		IF instrutor.salario > 300 THEN
+			RETURN 'Salário ok!';
+		ELSE
+			RETURN 'Salário pode aumentar.';
+		END IF;
+	END;
+$$ LANGUAGE plpgsql;
+
+SELECT nome, salario_ok(instrutor.id) FROM instrutor;
+
+-- ELSEIF
+DROP FUNCTION salario_ok;
+CREATE FUNCTION salario_ok(instrutor instrutor) RETURNS VARCHAR AS $$
+	BEGIN
+		-- Se o salário do instrutor > 300, está ok! Senão, aumente.
+		IF instrutor.salario > 400 THEN
+			RETURN 'Salário ok!';
+		ELSEIF instrutor.salario > 200 AND instrutor.salario <= 500 THEN
+			RETURN 'Salário poderá aumentar';
+		ELSE
+			RETURN 'Salário vai aumentar';
+		END IF;
+	END;
+$$ LANGUAGE plpgsql;
+
+SELECT nome, salario_ok(instrutor) FROM instrutor;
+
+-- CASE WHEN THEN
+DROP FUNCTION salario_ok;
+CREATE FUNCTION salario_ok(instrutor instrutor) RETURNS VARCHAR AS $$
+	BEGIN
+		CASE
+			WHEN instrutor.salario = 100 THEN
+				RETURN 'Salário Muito Baixo';
+			WHEN instrutor.salario = 200 THEN
+				RETURN 'Salário Baixo';
+			WHEN instrutor.salario = 300 THEN
+				RETURN 'Salário Normal';
+			WHEN instrutor.salario = 400 THEN
+				RETURN 'Salário Alto';
+			ELSE
+				RETURN 'Salário Muito Alto';	
+		END CASE;
+	END;
+$$ LANGUAGE plpgsql;
+
+SELECT nome, salario_ok(instrutor) FROM instrutor;
 
 
+-- Ou pode ser assim
+DROP FUNCTION salario_ok;
+CREATE FUNCTION salario_ok(instrutor instrutor) RETURNS VARCHAR AS $$
+	BEGIN
+		CASE instrutor.salario
+			WHEN 100 THEN
+				RETURN 'Salário Muito Baixo';
+			WHEN 200 THEN
+				RETURN 'Salário Baixo';
+			WHEN 300 THEN
+				RETURN 'Salário Normal';
+			WHEN 400 THEN
+				RETURN 'Salário Alto';
+			ELSE
+				RETURN 'Salário Muito Alto';	
+		END CASE;
+	END;
+$$ LANGUAGE plpgsql;
 
-
-
-
+SELECT nome, salario_ok(instrutor) FROM instrutor;
 
