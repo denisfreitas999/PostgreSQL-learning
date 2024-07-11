@@ -68,7 +68,40 @@ $$ LANGUAGE SQL;
 SELECT academico.mock_aluno();
 SELECT * FROM academico.aluno;
 
+--##########################################################
+--######################## Etapa 02 ########################
+--##########################################################
 
 
+-- Criando tabela instrutor no schema public
+CREATE TABLE instrutor (
+	id SERIAL PRIMARY KEY,
+	nome VARCHAR (255) NOT NULL,
+	salario DECIMAL (10,2)
+);
 
+SELECT * FROM instrutor;
 
+INSERT INTO instrutor (nome, salario) VALUES ('Denisson Freitas', 100);
+
+-- Criando funções que recebem uma tabela como parâmetro (Parâmetro composto)
+CREATE FUNCTION dobra_salario(instrutor) RETURNS DECIMAL AS $$
+		SELECT $1.salario * 2 AS salario_dobro_instrutor;
+	$$ LANGUAGE SQL;
+
+SELECT *, dobra_salario(instrutor.*) FROM  instrutor;
+SELECT nome, dobra_salario(instrutor.*) FROM  instrutor;
+SELECT nome, dobra_salario(instrutor.*) AS desejo FROM  instrutor;
+
+-- Retorno composto
+CREATE FUNCTION cria_instrutor_falso() RETURNS instrutor AS $$
+	SELECT 2 AS id, 'Nome Falso' AS nome, 200::DECIMAL AS salario;
+$$ LANGUAGE SQL;
+
+SELECT * FROM instrutor;
+-- Tabela de dados
+SELECT * FROM cria_instrutor_falso();
+-- Linha de dados
+SELECT cria_instrutor_falso();
+
+-- 
