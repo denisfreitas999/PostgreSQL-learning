@@ -3,6 +3,7 @@
 #### Course 01 - Curso Introdutório PostgreSQL (01 - 05)
 #### Course 02 - PostgreSQL: Views, Sub-Consultas e Funções (06 - 10) 
 #### Course 03 - PostgreSQL: Comandos DML e DDL  (11 - 15) 
+#### Course 04 - PostgreSQL: Desenvolva com PL/pgSQL (16 - 21)
 
 ## Tecnologias Envolvidas
 <div style="display: inline_block">
@@ -26,6 +27,12 @@
 13. [Inserção e Manipulação de Dados](#13-inserção-e-manipulação-de-dados)
 14. [Atualizações e Transações](#14-atualizações-e-transações)
 15. [SEQUENCEs e Tipos Personalizados](#15-sequences-e-tipos-personalizados)
+16. [Programação no Banco de Dados e Funções](#16-programação-no-banco-de-dados-e-funções)
+17. [Trabalhando com Tipos Compostos](#17-trabalhando-com-tipos-compostos)
+18. [Introdução ao PLpgSQL](#18-introdução-ao-plpgsql)
+19. [Tomada de Decisões e Controle de Fluxo](#19-tomada-de-decisões-e-controle-de-fluxo)
+20. [Operações Repetitivas e Estruturas de Loop](#20-operações-repetitivas-e-estruturas-de-loop)
+21. [Funções Avançadas e Logs](#21-funções-avançadas-e-logs)
 
 ## 1. Instalação e Configuração Inicial
 
@@ -174,3 +181,64 @@ Nesta etapa, foco em SEQUENCEs e tipos personalizados:
 - **Aprendendo o que é uma ENUM**: Definição e uso de tipos ENUM no PostgreSQL.
 - **Aprendendo a criar um tipo personalizado no banco de dados**: Criação de tipos personalizados para atender necessidades específicas.
 - **Conversando sobre como bancos de dados são utilizados na vida real**: Aplicações práticas de bancos de dados no cotidiano.
+
+## 16. Programação no Banco de Dados e Funções
+
+Nesta etapa, foco no propósito de programar diretamente no banco de dados e no conceito de funções:
+
+- **Começando a falar sobre o propósito de programar diretamente no banco de dados**: Entendimento da importância de programação no banco de dados.
+- **Conhecendo o conceito de funções no PostgreSQL**: Definição e utilidade de funções no PostgreSQL.
+- **Entendendo sobre tipos em parâmetros e retornos de funções**: Tipos de parâmetros e retornos utilizados em funções.
+- **Falando sobre como retornar valores em funções escritas em SQL**: Técnicas para retornar valores de funções SQL.
+
+## 17. Trabalhando com Tipos Compostos
+
+Nesta etapa, foco no uso de tipos compostos no PostgreSQL:
+
+- **Entendendo que podemos trabalhar com tipos "compostos"**: Definição e exemplos de tipos compostos.
+- **Vendo que podemos representar tipos compostos de diversas formas**:
+  - **Definindo seu valor como o registro de uma tabela**.
+  - **Como um tipo personalizado do PostgreSQL**.
+  - **Com variáveis de saída**.
+- **Entendendo como retornar mais de um dado por vez em nossas funções através do SETOF**: Uso do SETOF para múltiplos retornos.
+- **Conhecendo um dos possíveis usos para o tipo RECORD**: Aplicações práticas do tipo RECORD.
+
+## 18. Introdução ao PLpgSQL
+
+Nesta etapa, introdução à linguagem PLpgSQL:
+
+- **Entendendo as limitações do SQL quando se trata de programação**: Identificação das limitações do SQL.
+- **Conhecendo a linguagem PLpgSQL, que é uma linguagem de Programação Procedural criada pelo PostgreSQL como uma extensão ao SQL**: Definição e propósito do PLpgSQL.
+- **Aprendendo sobre a estrutura básica de criação de uma função usando PLpgSQL**: Estrutura fundamental para criar funções com PLpgSQL.
+- **Aprendendo a definir variáveis**: Definição e utilização de variáveis em PLpgSQL.
+- **Entendendo o conceito de blocos e escopos usando PLpgSQL**: Compreensão de blocos e escopos.
+
+## 19. Tomada de Decisões e Controle de Fluxo
+
+Nesta etapa, foco em decisões e controle de fluxo em PLpgSQL:
+
+- **Vendo como retornar valores utilizando PLpgSQL**: Métodos de retorno de valores.
+- **Aprendendo a tomar decisões em nossos códigos usando IF**: Uso do IF para tomadas de decisão.
+- **Conseguindo controlar o fluxo de nossa aplicação com ELSEIF e ELSE**: Controle de fluxo com ELSEIF e ELSE.
+- **Aprendendo a deixar nosso código um pouco mais legível com CASE**: Melhoria da legibilidade do código com CASE.
+
+## 20. Operações Repetitivas e Estruturas de Loop
+
+Nesta etapa, foco em operações repetitivas e estruturas de loop:
+
+- **Vendo mais uma forma de retornar valores através do RETURN NEXT**: Retorno de valores com RETURN NEXT.
+- **Entendendo a necessidade de realizar operações repetidas em determinadas funções**: Justificativa para operações repetitivas.
+- **Aprendendo a usar a estrutura LOOP para repetir instruções**: Utilização do LOOP para repetição.
+- **Usando EXIT para não cair em um loop infinito**: Prevenção de loops infinitos com EXIT.
+- **Conhecendo a estrutura WHILE para facilitar a leitura do LOOP sem precisar do EXIT**: Uso do WHILE para loops.
+- **Aprendendo a usar (e quando usar) o famoso FOR**: Aplicação do FOR.
+- **Vendo como percorrer o resultado de uma query usando FOR IN**: Iteração sobre resultados de consultas com FOR IN.
+
+## 21. Funções Avançadas e Logs
+
+Nesta etapa, foco em funções avançadas e logs:
+
+- **Criando funções mais próximas da vida real**: Desenvolvimento de funções realistas.
+- **Aprendendo sobre a variável automaticamente criada em funções com PLpgSQL chamada FOUND**: Utilização da variável FOUND.
+- **Conseguindo realizar logs de operações feitas no banco de dados**: Implementação de logs.
+- **Aprendendo a realizar cálculos com conversões de tipos usando PLpgSQL**: Cálculos e conversões de tipos.
