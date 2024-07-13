@@ -96,3 +96,7 @@ INSERT INTO instrutor (nome, salario) VALUES ('Flávio Santos', 2000);
 CREATE TRIGGER cria_log_instrutores AFTER INSERT ON instrutor
 	FOR EACH ROW EXECUTE FUNCTION cria_instrutor();
 
+--##########################################################
+--######################## Etapa 02 ########################
+--##########################################################
+
