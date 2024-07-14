@@ -4,6 +4,7 @@
 #### Course 02 - PostgreSQL: Views, Sub-Consultas e Funções (06 - 10) 
 #### Course 03 - PostgreSQL: Comandos DML e DDL  (11 - 15) 
 #### Course 04 - PostgreSQL: Desenvolva com PL/pgSQL (16 - 21)
+#### Course 05 - PostgreSQL: Triggers, transações, erros e cursores (22 - 26)
 
 ## Tecnologias Envolvidas
 <div style="display: inline_block">
@@ -33,6 +34,11 @@
 19. [Tomada de Decisões e Controle de Fluxo](#19-tomada-de-decisões-e-controle-de-fluxo)
 20. [Operações Repetitivas e Estruturas de Loop](#20-operações-repetitivas-e-estruturas-de-loop)
 21. [Funções Avançadas e Logs](#21-funções-avançadas-e-logs)
+22. [Conceito de Eventos e Triggers](#22-conceito-de-eventos-e-triggers)
+23. [Transações no PostgreSQL](#23-transações-no-postgresql)
+24. [Erros e Exceções](#24-erros-e-exceções)
+25. [Cursores](#25-cursores)
+26. [Blocos Anônimos e Boas Práticas](#26-blocos-anônimos-e-boas-práticas)
 
 ## 1. Instalação e Configuração Inicial
 
@@ -242,3 +248,49 @@ Nesta etapa, foco em funções avançadas e logs:
 - **Aprendendo sobre a variável automaticamente criada em funções com PLpgSQL chamada FOUND**: Utilização da variável FOUND.
 - **Conseguindo realizar logs de operações feitas no banco de dados**: Implementação de logs.
 - **Aprendendo a realizar cálculos com conversões de tipos usando PLpgSQL**: Cálculos e conversões de tipos.
+
+## 22. Conceito de Eventos e Triggers
+
+Nesta etapa, foco no conceito de eventos no banco de dados e triggers:
+
+- **Entendendo o conceito de eventos no banco de dados**: Definição e importância de eventos no banco de dados.
+- **Aprendendo como criar um Trigger Procedure**: Passos para criar uma Trigger Procedure.
+- **Definindo um Trigger que executa uma Trigger Procedure quando um evento ocorre**: Configuração de triggers para eventos específicos.
+- **Entendendo a fundo detalhes de triggers como FOR EACH ROW|STATEMENT, etc**: Exploração detalhada das opções FOR EACH ROW e STATEMENT.
+
+## 23. Transações no PostgreSQL
+
+Nesta etapa, foco em transações no PostgreSQL:
+
+- **Vendo que há 2 sintaxes para iniciar uma transação: BEGIN e START TRANSACTION**: Diferenças e usos das sintaxes BEGIN e START TRANSACTION.
+- **Entendendo que funções por si só já fazem parte de uma transação**: Compreensão do comportamento transacional de funções.
+- **Aprendendo que erros cancelam as alterações de uma função**: Mecanismos de cancelamento de transações em caso de erros.
+
+## 24. Erros e Exceções
+
+Nesta etapa, foco em erros e exceções no PostgreSQL:
+
+- **Aprendendo o que são os erros (ou exceções) do PostgreSQL**: Definição e tipos de erros/exceções.
+- **Aprendendo a gerar erros e mensagens com o RAISE**: Uso do RAISE para geração de erros e mensagens.
+- **Aprendendo a usar o ASSERT que verifica condições e levanta exceções**: Aplicação do ASSERT para verificação de condições.
+- **Entendendo que o RAISE pode ser usado no processo de depuração**: Uso do RAISE para depuração de código.
+
+## 25. Cursores
+
+Nesta etapa, foco no uso de cursores para gestão eficiente de memória:
+
+- **Entendendo o propósito de usar cursores para poupar uso de memória**: Vantagens dos cursores.
+- **Vendo como abrir cursores, sendo eles bound ou unbound**: Métodos para abrir cursores bound e unbound.
+- **Vendo como manipular cursores com FETCH e MOVE**: Comandos FETCH e MOVE para manipulação de cursores.
+- **Usando cursores na prática em um LOOP**: Implementação prática de cursores em loops.
+
+## 26. Blocos Anônimos e Boas Práticas
+
+Nesta etapa, foco em blocos anônimos e boas práticas de programação:
+
+- **Aprendendo a usar blocos anônimos com DO**: Criação e uso de blocos anônimos com a instrução DO.
+- **Vendo que blocos anônimos possuem 2 principais propósitos**:
+  - **Rodar um script pontual em PLpgSQL**.
+  - **Preparar uma função para efetivamente criá-la no futuro**.
+- **Entendendo que boas práticas de programação são muito importantes**: Importância das boas práticas no desenvolvimento.
+- **Conhecendo algumas outras ferramentas além do PgAdmin, como DataGrip e EMS**: Introdução a ferramentas adicionais para gerenciamento de bancos de dados.
