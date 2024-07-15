@@ -5,6 +5,7 @@
 #### Course 03 - PostgreSQL: Comandos DML e DDL  (11 - 15) 
 #### Course 04 - PostgreSQL: Desenvolva com PL/pgSQL (16 - 21)
 #### Course 05 - PostgreSQL: Triggers, transações, erros e cursores (22 - 26)
+#### Course 06 - PostgreSQL: administração e otimização do banco (27 - 33)
 
 ## Tecnologias Envolvidas
 <div style="display: inline_block">
@@ -39,6 +40,13 @@
 24. [Erros e Exceções](#24-erros-e-exceções)
 25. [Cursores](#25-cursores)
 26. [Blocos Anônimos e Boas Práticas](#26-blocos-anônimos-e-boas-práticas)
+27. [Papel do DBA e Modelo Cliente-Servidor](#27-papel-do-dba-e-modelo-cliente-servidor)
+28. [Cluster do PostgreSQL](#28-cluster-do-postgresql)
+29. [Tuning do Banco de Dados](#29-tuning-do-banco-de-dados)
+30. [Manutenção do Banco de Dados](#30-manutenção-do-banco-de-dados)
+31. [Backup e Restauração](#31-backup-e-restauração)
+32. [Query Planner e Índices](#32-query-planner-e-índices)
+33. [Controle de Acesso e ROLES](#33-controle-de-acesso-e-roles)
 
 ## 1. Instalação e Configuração Inicial
 
@@ -294,3 +302,67 @@ Nesta etapa, foco em blocos anônimos e boas práticas de programação:
   - **Preparar uma função para efetivamente criá-la no futuro**.
 - **Entendendo que boas práticas de programação são muito importantes**: Importância das boas práticas no desenvolvimento.
 - **Conhecendo algumas outras ferramentas além do PgAdmin, como DataGrip e EMS**: Introdução a ferramentas adicionais para gerenciamento de bancos de dados.
+
+## 27. Papel do DBA e Modelo Cliente-Servidor
+
+Nesta etapa, foco no papel do DBA e no modelo cliente-servidor:
+
+- **Entendendo qual o papel do DBA em uma empresa**: Funções e responsabilidades do DBA.
+- **Conhecendo o modelo cliente-servidor em que os bancos de dados funcionam**: Arquitetura e comunicação cliente-servidor.
+- **Vendo que o servidor pode receber conexões de diversos clientes**: Capacidade de gerenciamento de múltiplas conexões pelo servidor.
+
+## 28. Cluster do PostgreSQL
+
+Nesta etapa, foco na compreensão e gerenciamento de clusters do PostgreSQL:
+
+- **Entendendo o que é um cluster do PostgreSQL**: Definição e estrutura de um cluster.
+- **Aprendendo a inicializar um cluster com o comando initdb**: Passos para iniciar um cluster.
+- **Entendendo como gerenciar o serviço do servidor PostgreSQL**: Administração do serviço PostgreSQL.
+- **Conhecendo o utilitário pg_ctl**: Uso e funções do utilitário pg_ctl para controle do servidor.
+
+## 29. Tuning do Banco de Dados
+
+Nesta etapa, foco no tuning e otimização do banco de dados:
+
+- **Conversando sobre tuning do banco de dados**: Conceitos e práticas de tuning.
+- **Entendendo que a escolha do hardware do servidor é importante, mas que serviços de nuvem abstraem esse detalhe para os DBAs**: Importância do hardware e como a nuvem pode simplificar isso.
+- **Conhecendo a pasta data do PostgreSQL onde encontramos o arquivo de configurações**: Localização e importância dos arquivos de configuração.
+- **Falando sobre o papel do DBA na gestão do sistema operacional**: Responsabilidades do DBA no contexto do sistema operacional.
+
+## 30. Manutenção do Banco de Dados
+
+Nesta etapa, foco na manutenção do banco de dados:
+
+- **Vendo que há processos de manutenção que podemos/devemos fazer no banco**: Tipos de manutenção necessários.
+- **Aprendendo como o PostgreSQL mantém alguns dados “inúteis” por questão de performance**: Gerenciamento de dados obsoletos.
+- **Conhecendo o comando VACUUM para limpar espaço em disco**: Uso e importância do comando VACUUM.
+- **Vendo como reindexar as tabelas do banco com o comando REINDEX**: Processo de reindexação para melhorar a performance.
+
+## 31. Backup e Restauração
+
+Nesta etapa, foco em técnicas de backup e restauração:
+
+- **Entendendo que há diferentes tipos de backup e conversando sobre como fazê-los**: Tipos de backup e suas aplicações.
+- **Vendo que há 2 principais formas de fazer backups**: 
+  - Através da linha de comando (usando pg_dump).
+  - Através de interfaces gráficas (por exemplo, usando o PgAdmin).
+- **Aprendendo como restaurar backups realizados também de 2 formas diferentes**: Métodos de restauração de backups.
+
+## 32. Query Planner e Índices
+
+Nesta etapa, foco no planejador de queries e no uso de índices:
+
+- **Conhecendo o conceito do planejador de queries (Query Planner) do PostgreSQL**: Funcionamento e importância do Query Planner.
+- **Aprendendo que o comando EXPLAIN pode nos dar informações sobre como uma query é executada**: Uso do comando EXPLAIN para análise de performance.
+- **Aprendendo o que são e como utilizar índices**: Definição e uso de índices para otimização.
+- **Vendo que, apesar de serem uma ferramenta muito poderosa, índices nem sempre são a solução**: Limitações e considerações sobre o uso de índices.
+
+## 33. Controle de Acesso e ROLES
+
+Nesta etapa, foco no controle de acesso e gestão de roles:
+
+- **Vendo como permitir ou impedir o acesso ao servidor a partir de algum host**: Configuração de acessos.
+- **Conhecendo o arquivo pg_hba.conf, que permite a configuração de acesso ao servidor baseado em hosts**: Estrutura e uso do arquivo pg_hba.conf.
+- **Vendo que o PostgreSQL trabalha com um conceito de ROLES, que podem ser como usuários ou grupos**: Definição e gerenciamento de roles.
+- **Aprendendo sobre os atributos dos ROLES**: Atributos e permissões das roles.
+- **Entendendo que é possível dar ou retirar permissões específicas a ROLES**: Gestão de permissões e segurança.
